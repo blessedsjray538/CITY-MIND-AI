@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime, Text
 from datetime import datetime
-from backend.app.database.connection import Base
+from ..database.connection import Base
 
 class WasteIncident(Base):
     __tablename__ = "waste_incidents"

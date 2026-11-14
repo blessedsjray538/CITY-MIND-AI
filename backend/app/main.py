@@ -1,10 +1,10 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.app.database.connection import engine, Base
+from .database.connection import engine, Base
 import asyncio
 from dotenv import load_dotenv
 load_dotenv()
-from backend.app.routes import (
+from .routes import (
     map as map_routes,
     traffic as traffic_routes,
     weather as weather_routes,
@@ -15,7 +15,7 @@ from backend.app.routes import (
     analytics as analytics_routes,
     orchestrator as orchestrator_routes
 )
-from backend.app.orchestrator.engine import run_periodic_orchestrator_scheduler
+from .orchestrator.engine import run_periodic_orchestrator_scheduler
 
 # Initialize Database Tables
 Base.metadata.create_all(bind=engine)

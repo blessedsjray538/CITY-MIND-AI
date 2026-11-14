@@ -1,16 +1,16 @@
 from fastapi import APIRouter, HTTPException, status
-from backend.app.schemas.schemas import AIChatRequest, AIChatResponse
+from ..schemas.schemas import AIChatRequest, AIChatResponse
 
 
-from backend.app.routes.traffic import ROAD_SEGMENTS, INTERSECTIONS
-from backend.app.routes.disasters import HISTORICAL_DISASTERS, ACTIVE_ALERTS
-from backend.app.routes.waste import waste_incidents
-from backend.app.knowledge.disaster_facts import search_disaster_knowledge, format_disaster_fact_sheet
-from backend.app.orchestrator.engine import ORCHESTRATOR_STATE
+from .traffic import ROAD_SEGMENTS, INTERSECTIONS
+from .disasters import HISTORICAL_DISASTERS, ACTIVE_ALERTS
+from .waste import waste_incidents
+from ..knowledge.disaster_facts import search_disaster_knowledge, format_disaster_fact_sheet
+from ..orchestrator.engine import ORCHESTRATOR_STATE
 from typing import Optional
 
 
-from backend.app.ai.gemini_client import GeminiClient
+from ..ai.gemini_client import GeminiClient
 
 gemini_client = GeminiClient()
 

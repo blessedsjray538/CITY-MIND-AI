@@ -13,9 +13,9 @@ import asyncio
 import datetime
 from typing import Dict, Any, List, Optional
 import httpx
-from backend.app.routes.traffic import ROAD_SEGMENTS
-from backend.app.routes.disasters import ACTIVE_ALERTS, HISTORICAL_DISASTERS
-from backend.app.routes.waste import waste_incidents
+from ..routes.traffic import ROAD_SEGMENTS
+from ..routes.disasters import ACTIVE_ALERTS, HISTORICAL_DISASTERS
+from ..routes.waste import waste_incidents
 
 # In-memory Orchestrator State
 ORCHESTRATOR_STATE = {
