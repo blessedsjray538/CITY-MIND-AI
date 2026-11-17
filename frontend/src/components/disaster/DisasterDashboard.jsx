@@ -269,11 +269,11 @@ export default function DisasterDashboard({ onBackToDashboard }) {
         </div>
 
         {/* Header Action Buttons */}
-        <div className="flex items-center space-x-2">
+        <div className="flex flex-wrap items-center gap-2">
           <button
             type="button"
             onClick={handleRequestLocation}
-            className="flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-300 hover:border-cyan-500 hover:text-white transition font-mono"
+            className="flex items-center space-x-1.5 px-3 py-1.5 min-h-[36px] rounded-lg bg-slate-900 border border-slate-800 text-xs text-slate-300 hover:border-cyan-500 hover:text-white transition font-mono cursor-pointer"
           >
             <Crosshair className="w-3.5 h-3.5 text-cyan-400" />
             <span>{locatingUser ? 'Locating…' : 'My Location'}</span>
@@ -290,7 +290,7 @@ export default function DisasterDashboard({ onBackToDashboard }) {
                 else localStorage.removeItem('tomtom_api_key');
               }
             }}
-            className={`flex items-center space-x-1 px-3 py-1.5 rounded-lg text-xs font-mono transition border ${
+            className={`flex items-center space-x-1 px-3 py-1.5 min-h-[36px] rounded-lg text-xs font-mono transition border cursor-pointer ${
               tomtomApiKey
                 ? 'bg-emerald-950/40 border-emerald-800 text-emerald-300'
                 : 'bg-slate-900 border-slate-800 text-slate-400 hover:text-white'
@@ -303,7 +303,7 @@ export default function DisasterDashboard({ onBackToDashboard }) {
           <button
             type="button"
             onClick={() => setLegendOpen(true)}
-            className="flex items-center space-x-1 px-3 py-1.5 rounded-lg bg-amber-950/40 border border-amber-800/80 text-xs text-amber-300 hover:bg-amber-900/40 font-mono"
+            className="flex items-center space-x-1 px-3 py-1.5 min-h-[36px] rounded-lg bg-amber-950/40 border border-amber-800/80 text-xs text-amber-300 hover:bg-amber-900/40 font-mono cursor-pointer"
           >
             <HelpCircle className="w-3.5 h-3.5" />
             <span>Legend</span>
@@ -449,7 +449,7 @@ export default function DisasterDashboard({ onBackToDashboard }) {
         </aside>
 
         {/* Center: Interactive Leaflet Map */}
-        <section className="relative w-full h-full min-h-[480px] bg-[#020b14]">
+        <section className="relative w-full h-full min-h-[350px] xs:min-h-[400px] sm:min-h-[480px] bg-[#020b14]">
           <DisasterMap
             emergencyLocations={emergencyLocations}
             disasterZones={disasterZones}

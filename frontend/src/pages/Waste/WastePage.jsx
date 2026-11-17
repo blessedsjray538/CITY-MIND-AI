@@ -168,45 +168,45 @@ export default function WastePage() {
       </div>
 
       {/* Top Sanitation Metrics Bar */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 font-mono">
-        <div className="glass-panel p-3.5 border-l-4 border-l-rose-500">
-          <div className="text-[10px] text-slate-400">UNATTENDED INCIDENTS (RED)</div>
-          <div className="text-2xl font-bold text-rose-400 mt-1">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 font-mono">
+        <div className="glass-panel p-3 sm:p-3.5 border-l-4 border-l-rose-500">
+          <div className="text-[10px] text-slate-400">UNATTENDED INCIDENTS</div>
+          <div className="text-xl sm:text-2xl font-bold text-rose-400 mt-1">
             {analytics?.pending_cleaning_red ?? reports.filter(r => r.status === 'REPORTED').length}
           </div>
-          <div className="text-[10px] text-slate-400">Cleaning Required</div>
+          <div className="text-[10px] text-slate-400 truncate">Cleaning Required</div>
         </div>
 
-        <div className="glass-panel p-3.5 border-l-4 border-l-emerald-500">
-          <div className="text-[10px] text-slate-400">CLEANED & VERIFIED (GREEN)</div>
-          <div className="text-2xl font-bold text-emerald-400 mt-1">
+        <div className="glass-panel p-3 sm:p-3.5 border-l-4 border-l-emerald-500">
+          <div className="text-[10px] text-slate-400">CLEANED &amp; VERIFIED</div>
+          <div className="text-xl sm:text-2xl font-bold text-emerald-400 mt-1">
             {analytics?.completed_cleaned_green ?? reports.filter(r => r.status === 'CLEANED').length}
           </div>
-          <div className="text-[10px] text-emerald-400 font-semibold">Completed Workflow</div>
+          <div className="text-[10px] text-emerald-400 font-semibold truncate">Completed Workflow</div>
         </div>
 
-        <div className="glass-panel p-3.5">
-          <div className="text-[10px] text-slate-400">ACTIVE FIELD SANITATION WORKERS</div>
-          <div className="text-2xl font-bold text-white mt-1">
+        <div className="glass-panel p-3 sm:p-3.5">
+          <div className="text-[10px] text-slate-400">ACTIVE WORKERS</div>
+          <div className="text-xl sm:text-2xl font-bold text-white mt-1">
             {analytics?.active_workers_on_duty || 18}
           </div>
-          <div className="text-[10px] text-cyan-400">Squads On Shift</div>
+          <div className="text-[10px] text-cyan-400 truncate">Squads On Shift</div>
         </div>
 
-        <div className="glass-panel p-3.5">
-          <div className="text-[10px] text-slate-400">RESOLUTION EFFICIENCY</div>
-          <div className="text-2xl font-bold text-cyan-300 mt-1">
+        <div className="glass-panel p-3 sm:p-3.5">
+          <div className="text-[10px] text-slate-400">RESOLUTION RATE</div>
+          <div className="text-xl sm:text-2xl font-bold text-cyan-300 mt-1">
             {analytics?.resolution_rate_percent || 75.0}%
           </div>
-          <div className="text-[10px] text-slate-400">Avg turnaround: 3.4h</div>
+          <div className="text-[10px] text-slate-400 truncate">turnaround: ~3.4h</div>
         </div>
       </div>
 
       {/* Main Grid: Dedicated Waste Map + Incidents List / Details */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5">
         
         {/* Map Viewport (2 cols) */}
-        <div className="lg:col-span-2 h-[550px] rounded-2xl overflow-hidden border border-slate-800 shadow-2xl relative">
+        <div className="lg:col-span-2 h-[340px] xs:h-[380px] sm:h-[450px] md:h-[500px] lg:h-[550px] rounded-2xl overflow-hidden border border-slate-800 shadow-2xl relative">
           <CityMap 
             mode="waste" 
             wasteReports={reports}
@@ -330,16 +330,16 @@ export default function WastePage() {
 
       {/* New Incident Submission Modal */}
       {showReportModal && (
-        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="glass-panel p-6 max-w-md w-full border border-cyan-500/40 shadow-2xl font-mono text-xs animate-in fade-in">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
+        <div className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
+          <div className="glass-panel p-4 sm:p-6 max-w-md w-[95%] sm:w-full max-h-[92vh] overflow-y-auto border border-cyan-500/40 shadow-2xl font-mono text-xs animate-in fade-in">
+            <div className="flex items-center justify-between pb-3 border-b border-slate-800 mb-3 sm:mb-4">
               <div className="flex items-center space-x-2 text-rose-400 font-bold">
-                <PlusCircle className="w-4 h-4" />
-                <span>SUBMIT WASTE INCIDENT REPORT</span>
+                <PlusCircle className="w-4 h-4 shrink-0" />
+                <span className="truncate">SUBMIT WASTE REPORT</span>
               </div>
               <button 
                 onClick={() => setShowReportModal(false)}
-                className="text-slate-500 hover:text-white"
+                className="p-1 rounded text-slate-500 hover:text-white cursor-pointer"
               >
                 ✕
               </button>

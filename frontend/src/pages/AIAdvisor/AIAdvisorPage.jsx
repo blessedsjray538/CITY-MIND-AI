@@ -96,7 +96,7 @@ export default function AIAdvisorPage() {
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-5">
         
         {/* Terminal Chat Window (3 cols) */}
-        <div className="lg:col-span-3 glass-panel rounded-2xl flex flex-col h-[600px] border border-purple-500/30 overflow-hidden font-mono text-xs">
+        <div className="lg:col-span-3 glass-panel rounded-2xl flex flex-col h-[460px] sm:h-[520px] md:h-[600px] border border-purple-500/30 overflow-hidden font-mono text-xs">
           
           {/* Terminal Title Bar */}
           <div className="p-3 bg-slate-950 border-b border-slate-800 flex items-center justify-between">

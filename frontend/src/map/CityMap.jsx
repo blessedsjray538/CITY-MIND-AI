@@ -514,27 +514,27 @@ export default function CityMap({
 
       {/* Road Congestion Legend - Hidden in Digital Twin mode */}
       {mode !== 'digital-twin' && (
-        <div className="absolute top-4 right-4 z-10 glass-panel p-2.5 rounded-xl border border-slate-800 text-[11px] font-mono shadow-2xl">
-          <div className="font-bold text-white mb-1.5 flex items-center justify-between gap-4">
-            <span>CORRIDOR FLOW</span>
-            <span className="text-[9px] text-cyan-400">NO VEHICLE DOTS</span>
+        <div className="absolute top-2.5 sm:top-4 right-2.5 sm:right-4 z-10 glass-panel p-2 sm:p-2.5 rounded-xl border border-slate-800 text-[10px] sm:text-[11px] font-mono shadow-2xl max-w-[185px] sm:max-w-none">
+          <div className="font-bold text-white mb-1 flex items-center justify-between gap-2 sm:gap-4">
+            <span className="truncate">CORRIDOR FLOW</span>
+            <span className="text-[8px] sm:text-[9px] text-cyan-400 shrink-0">POLYLINE</span>
           </div>
-          <div className="space-y-1">
-            <div className="flex items-center space-x-2">
-              <span className="w-3.5 h-1.5 rounded-sm bg-emerald-500" />
-              <span className="text-slate-300">Green: Free Flow (50+ km/h)</span>
+          <div className="space-y-0.5 sm:space-y-1 text-[9px] sm:text-[10px]">
+            <div className="flex items-center space-x-1.5 sm:space-x-2">
+              <span className="w-3 h-1.5 rounded-sm bg-emerald-500 shrink-0" />
+              <span className="text-slate-300 truncate">Free Flow (50+ km/h)</span>
             </div>
-            <div className="flex items-center space-x-2">
-              <span className="w-3.5 h-1.5 rounded-sm bg-yellow-400" />
-              <span className="text-slate-300">Yellow: Moderate (35-45 km/h)</span>
+            <div className="flex items-center space-x-1.5 sm:space-x-2">
+              <span className="w-3 h-1.5 rounded-sm bg-yellow-400 shrink-0" />
+              <span className="text-slate-300 truncate">Moderate (35-45)</span>
             </div>
-            <div className="flex items-center space-x-2">
-              <span className="w-3.5 h-1.5 rounded-sm bg-orange-500" />
-              <span className="text-slate-300">Orange: Heavy Slowdown</span>
+            <div className="flex items-center space-x-1.5 sm:space-x-2">
+              <span className="w-3 h-1.5 rounded-sm bg-orange-500 shrink-0" />
+              <span className="text-slate-300 truncate">Heavy Slowdown</span>
             </div>
-            <div className="flex items-center space-x-2">
-              <span className="w-3.5 h-1.5 rounded-sm bg-rose-500" />
-              <span className="text-slate-300">Red: Jam / Road Closed</span>
+            <div className="flex items-center space-x-1.5 sm:space-x-2">
+              <span className="w-3 h-1.5 rounded-sm bg-rose-500 shrink-0" />
+              <span className="text-slate-300 truncate">Closed / Jam</span>
             </div>
           </div>
         </div>
@@ -542,15 +542,15 @@ export default function CityMap({
 
       {/* Selected Road Card Popup - Hidden in Digital Twin mode */}
       {mode !== 'digital-twin' && selectedRoad && (
-        <div className="absolute bottom-4 left-4 z-10 glass-panel p-3 rounded-xl border border-cyan-500/50 text-xs font-mono max-w-xs shadow-2xl">
+        <div className="absolute bottom-2.5 sm:bottom-4 left-2.5 sm:left-4 right-2.5 sm:right-auto z-10 glass-panel p-2.5 sm:p-3 rounded-xl border border-cyan-500/50 text-xs font-mono max-w-full sm:max-w-xs shadow-2xl">
           <div className="flex items-center justify-between text-cyan-400 font-bold mb-1">
-            <span>{selectedRoad.name}</span>
+            <span className="truncate mr-2">{selectedRoad.name}</span>
             <button 
               onClick={() => setSelectedRoad(null)}
-              className="text-slate-400 hover:text-white px-1"
+              className="text-slate-400 hover:text-white px-1.5 py-0.5 cursor-pointer"
             >✕</button>
           </div>
-          <div className="text-slate-300 space-y-0.5 text-[11px]">
+          <div className="text-slate-300 space-y-0.5 text-[10px] sm:text-[11px]">
             <div>Status: <span className="font-bold uppercase text-white">{selectedRoad.congestion}</span></div>
             <div>Average Flow Speed: <span className="text-cyan-300 font-bold">{selectedRoad.avg_speed}</span></div>
           </div>

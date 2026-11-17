@@ -40,7 +40,7 @@ export default function DigitalTwinPage() {
         </div>
 
         {/* Telemetry Chips */}
-        <div className="flex items-center space-x-2 font-mono text-xs">
+        <div className="flex flex-wrap items-center gap-2 font-mono text-xs">
           <span className="px-2.5 py-1 rounded-lg bg-cyan-950/80 border border-cyan-800 text-cyan-300">
             CRS: EPSG:4326 (WGS84)
           </span>
@@ -51,10 +51,10 @@ export default function DigitalTwinPage() {
       </div>
 
       {/* Main Grid: Interactive Map + Side Layer Controls */}
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-5">
         
-        {/* Map Viewport (Takes 3 columns) */}
-        <div className="lg:col-span-3 h-[580px] rounded-2xl overflow-hidden border border-cyan-500/30 shadow-2xl relative">
+        {/* Map Viewport (Takes 3 columns on large, full on mobile) */}
+        <div className="lg:col-span-3 h-[340px] xs:h-[380px] sm:h-[450px] md:h-[520px] lg:h-[580px] rounded-2xl overflow-hidden border border-cyan-500/30 shadow-2xl relative">
           <CityMap mode="digital-twin" basemap={basemap} activeLayers={activeLayers} />
         </div>
 

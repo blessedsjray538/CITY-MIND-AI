@@ -91,78 +91,78 @@ export default function WeatherPage() {
       </div>
 
       {/* Atmospheric Metrics Cards Bar */}
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3.5 font-mono">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-3.5 font-mono">
         
-        <div className="glass-panel p-3.5">
+        <div className="glass-panel p-3 sm:p-3.5">
           <div className="flex items-center justify-between text-slate-400 text-[10px]">
             <span>TEMPERATURE</span>
             <Thermometer className="w-3.5 h-3.5 text-blue-400" />
           </div>
-          <div className="text-2xl font-bold text-white mt-1">
-            {current.temperature_c}Â°C
+          <div className="text-xl sm:text-2xl font-bold text-white mt-1">
+            {current.temperature_c}°C
           </div>
-          <div className="text-[10px] text-slate-400">Feels like {current.feels_like_c}Â°C</div>
+          <div className="text-[10px] text-slate-400">Feels like {current.feels_like_c}°C</div>
         </div>
 
-        <div className="glass-panel p-3.5">
+        <div className="glass-panel p-3 sm:p-3.5">
           <div className="flex items-center justify-between text-slate-400 text-[10px]">
             <span>SURFACE WIND</span>
             <Wind className="w-3.5 h-3.5 text-cyan-400" />
           </div>
-          <div className="text-2xl font-bold text-cyan-300 mt-1">
+          <div className="text-xl sm:text-2xl font-bold text-cyan-300 mt-1">
             {current.wind_speed_kmh} <span className="text-xs font-normal">km/h</span>
           </div>
-          <div className="text-[10px] text-slate-400">Heading {current.wind_direction_deg}Â° SSE</div>
+          <div className="text-[10px] text-slate-400 truncate">Heading {current.wind_direction_deg}° SSE</div>
         </div>
 
-        <div className="glass-panel p-3.5">
+        <div className="glass-panel p-3 sm:p-3.5">
           <div className="flex items-center justify-between text-slate-400 text-[10px]">
             <span>HUMIDITY</span>
             <Droplets className="w-3.5 h-3.5 text-blue-400" />
           </div>
-          <div className="text-2xl font-bold text-white mt-1">
+          <div className="text-xl sm:text-2xl font-bold text-white mt-1">
             {current.humidity_percent}%
           </div>
           <div className="text-[10px] text-slate-400">Coastal Moisture</div>
         </div>
 
-        <div className="glass-panel p-3.5">
+        <div className="glass-panel p-3 sm:p-3.5">
           <div className="flex items-center justify-between text-slate-400 text-[10px]">
             <span>PRECIPITATION</span>
             <CloudRain className="w-3.5 h-3.5 text-blue-400" />
           </div>
-          <div className="text-2xl font-bold text-white mt-1">
+          <div className="text-xl sm:text-2xl font-bold text-white mt-1">
             {current.precipitation_mm} <span className="text-xs font-normal">mm</span>
           </div>
           <div className="text-[10px] text-emerald-400">Normal Range</div>
         </div>
 
-        <div className="glass-panel p-3.5">
+        <div className="glass-panel p-3 sm:p-3.5">
           <div className="flex items-center justify-between text-slate-400 text-[10px]">
             <span>ATM. PRESSURE</span>
             <Gauge className="w-3.5 h-3.5 text-purple-400" />
           </div>
-          <div className="text-2xl font-bold text-white mt-1">
+          <div className="text-xl sm:text-2xl font-bold text-white mt-1">
             {current.surface_pressure_hpa} <span className="text-xs font-normal">hPa</span>
           </div>
-          <div className="text-[10px] text-slate-400">Barometric Sea Level</div>
+          <div className="text-[10px] text-slate-400">Barometric Sea</div>
         </div>
 
-        <div className="glass-panel p-3.5">
+        <div className="glass-panel p-3 sm:p-3.5 col-span-2 sm:col-span-1">
           <div className="flex items-center justify-between text-slate-400 text-[10px]">
             <span>CLOUD DENSITY</span>
             <Cloud className="w-3.5 h-3.5 text-slate-300" />
           </div>
-          <div className="text-2xl font-bold text-white mt-1">
+          <div className="text-xl sm:text-2xl font-bold text-white mt-1">
             {current.cloud_cover_percent}%
           </div>
-          <div className="text-[10px] text-slate-400">{current.condition}</div>
+          <div className="text-[10px] text-slate-400 truncate">{current.condition}</div>
         </div>
 
       </div>
 
       {/* Main Meteorological Interactive Earth / Radar Viewport */}
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4 sm:gap-5">
         
         {/* Real 3D Globe + Submarine Sweep Radar Viewport (3 cols) */}
         <div className="lg:col-span-3">

@@ -120,7 +120,7 @@ export default function TrafficPage() {
         </div>
 
         {/* Status Pills */}
-        <div className="flex items-center space-x-2 font-mono text-xs">
+        <div className="flex flex-wrap items-center gap-2 font-mono text-xs">
           <span className="px-2.5 py-1 rounded-lg bg-emerald-950/80 border border-emerald-800 text-emerald-400 flex items-center space-x-1.5">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
             <span>CONGESTION ENGINE: LIVE</span>
@@ -133,19 +133,19 @@ export default function TrafficPage() {
 
       {/* Reroute Warning Banner (When Road is Closed) */}
       {roadClosureActive && (
-        <div className="p-4 rounded-xl border border-rose-500/50 bg-rose-950/30 backdrop-blur-md flex items-center justify-between font-mono text-xs animate-pulse">
-          <div className="flex items-center space-x-3">
-            <AlertOctagon className="w-5 h-5 text-rose-400 shrink-0" />
+        <div className="p-3.5 sm:p-4 rounded-xl border border-rose-500/50 bg-rose-950/30 backdrop-blur-md flex flex-col sm:flex-row items-start sm:items-center justify-between font-mono text-xs gap-3 animate-pulse">
+          <div className="flex items-start sm:items-center space-x-3">
+            <AlertOctagon className="w-5 h-5 text-rose-400 shrink-0 mt-0.5 sm:mt-0" />
             <div>
               <span className="font-bold text-rose-300">ROAD CLOSURE DETOUR ACTIVE:</span> Jaydev Vihar Flyover is closed (Marked in RED).
               <span className="text-slate-300 block text-[11px] mt-0.5">
-                Vehicles rerouted via Nandankanan Expressway (ORANGE) & Sainik School Road.
+                Vehicles rerouted via Nandankanan Expressway (ORANGE) &amp; Sainik School Road.
               </span>
             </div>
           </div>
           <button
             onClick={handleToggleClosure}
-            className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition-all shrink-0 cursor-pointer"
+            className="w-full sm:w-auto px-4 py-2 min-h-[40px] rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition-all shrink-0 cursor-pointer flex items-center justify-center"
           >
             REOPEN ROAD
           </button>
@@ -153,47 +153,47 @@ export default function TrafficPage() {
       )}
 
       {/* Top Simulation Telemetry Metrics Bar */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="glass-panel p-3.5 font-mono">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4">
+        <div className="glass-panel p-3 sm:p-3.5 font-mono">
           <div className="text-[10px] text-slate-400">MONITORED CORRIDORS</div>
-          <div className="text-2xl font-bold text-white mt-1">5 ARTERIES</div>
-          <div className="text-[10px] text-cyan-400 mt-0.5">NH-16 Bhubaneswar Backbone</div>
+          <div className="text-xl sm:text-2xl font-bold text-white mt-1">5 ARTERIES</div>
+          <div className="text-[10px] text-cyan-400 mt-0.5 truncate">NH-16 Bhubaneswar</div>
         </div>
 
-        <div className="glass-panel p-3.5 font-mono">
-          <div className="text-[10px] text-slate-400">CORRIDOR AVERAGE SPEED</div>
-          <div className="text-2xl font-bold text-amber-400 mt-1">
-            {trafficData?.state?.average_speed_kmh || 38.5} <span className="text-sm font-normal text-slate-400">km/h</span>
+        <div className="glass-panel p-3 sm:p-3.5 font-mono">
+          <div className="text-[10px] text-slate-400">CORRIDOR AVG SPEED</div>
+          <div className="text-xl sm:text-2xl font-bold text-amber-400 mt-1">
+            {trafficData?.state?.average_speed_kmh || 38.5} <span className="text-xs font-normal text-slate-400">km/h</span>
           </div>
-          <div className="text-[10px] text-slate-400 mt-0.5">Speed Limit: 60 km/h</div>
+          <div className="text-[10px] text-slate-400 mt-0.5">Limit: 60 km/h</div>
         </div>
 
-        <div className="glass-panel p-3.5 font-mono">
+        <div className="glass-panel p-3 sm:p-3.5 font-mono">
           <div className="text-[10px] text-slate-400">CONGESTION LEVEL</div>
-          <div className="text-2xl font-bold text-rose-400 mt-1">
+          <div className="text-xl sm:text-2xl font-bold text-rose-400 mt-1">
             {roadClosureActive ? '76.4%' : '48.2%'}
           </div>
-          <div className="text-[10px] text-slate-400 mt-0.5">
-            {roadClosureActive ? 'Severe Reroute Spikes (Red/Orange)' : 'Balanced Flow Index'}
+          <div className="text-[10px] text-slate-400 mt-0.5 truncate">
+            {roadClosureActive ? 'Severe Reroute Spikes' : 'Balanced Flow Index'}
           </div>
         </div>
 
-        <div className="glass-panel p-3.5 font-mono">
+        <div className="glass-panel p-3 sm:p-3.5 font-mono">
           <div className="text-[10px] text-slate-400">ACTIVE CLOSURES</div>
-          <div className="text-2xl font-bold text-white mt-1">
-            {roadClosureActive ? '1 ARTERY (RED)' : '0 NONE (OPEN)'}
+          <div className="text-xl sm:text-2xl font-bold text-white mt-1">
+            {roadClosureActive ? '1 ARTERY' : '0 (NONE)'}
           </div>
-          <div className={`text-[10px] mt-0.5 font-semibold ${roadClosureActive ? 'text-rose-400' : 'text-emerald-400'}`}>
+          <div className={`text-[10px] mt-0.5 font-semibold truncate ${roadClosureActive ? 'text-rose-400' : 'text-emerald-400'}`}>
             {roadClosureActive ? 'Jaydev Vihar Closed' : 'All Arteries Clear'}
           </div>
         </div>
       </div>
 
       {/* Main Grid: Interactive Map with Real Live Vehicles + Controls */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5">
         
         {/* Traffic Map with Color-Coded Congestion Corridors (2 cols) */}
-        <div className="lg:col-span-2 h-[540px] rounded-2xl overflow-hidden border border-slate-800 shadow-2xl relative">
+        <div className="lg:col-span-2 h-[340px] xs:h-[380px] sm:h-[450px] md:h-[500px] lg:h-[540px] rounded-2xl overflow-hidden border border-slate-800 shadow-2xl relative">
           <CityMap 
             mode="traffic" 
             roadsState={roadsState}

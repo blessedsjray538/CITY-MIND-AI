@@ -52,37 +52,37 @@ export default function OverviewPage({ onNavigateDepartment }) {
   return (
     <div className="space-y-6">
       {/* Hero Welcome Banner */}
-      <div className="relative overflow-hidden rounded-2xl border border-cyan-500/25 bg-gradient-to-r from-[#0c1424] via-[#070b14] to-[#0d1729] p-6 shadow-[0_0_40px_rgba(0,240,255,0.08)]">
+      <div className="relative overflow-hidden rounded-2xl border border-cyan-500/25 bg-gradient-to-r from-[#0c1424] via-[#070b14] to-[#0d1729] p-4 sm:p-6 shadow-[0_0_40px_rgba(0,240,255,0.08)]">
         <div className="absolute -right-10 -bottom-10 w-80 h-80 rounded-full bg-cyan-500/10 blur-[100px] pointer-events-none" />
 
-        <div className="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+        <div className="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4 sm:gap-6">
           <div>
             <div className="flex items-center space-x-2 text-xs font-mono text-cyan-400 mb-2">
-              <Compass className="w-4 h-4 animate-spin text-cyan-400" />
-              <span>PRIMARY COMMAND NODE // BHUBANESWAR URBAN DIGITAL TWIN</span>
+              <Compass className="w-4 h-4 animate-spin text-cyan-400 shrink-0" />
+              <span className="truncate">COMMAND NODE // BHUBANESWAR DIGITAL TWIN</span>
             </div>
-            <h1 className="text-3xl md:text-4xl font-black text-white tracking-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight">
               CITY<span className="text-cyan-400">MIND</span> AI COMMAND CENTER
             </h1>
-            <p className="mt-2 text-slate-300 text-sm max-w-2xl leading-relaxed">
+            <p className="mt-2 text-slate-300 text-xs sm:text-sm max-w-2xl leading-relaxed">
               Real-time synchronization across the <span className="text-cyan-300 font-semibold">Jaydev Vihar – Acharya Vihar – Vani Vihar</span> development corridor. Multi-department simulation, verified weather observation, disaster early warning, and responsive civic operations.
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3">
+          <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 w-full sm:w-auto shrink-0">
             <button
               onClick={() => onNavigateDepartment('traffic')}
-              className="px-5 py-2.5 rounded-xl bg-cyan-500 text-slate-950 font-mono text-xs font-bold hover:bg-cyan-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_20px_rgba(0,240,255,0.4)]"
+              className="px-4 sm:px-5 py-2.5 min-h-[44px] rounded-xl bg-cyan-500 text-slate-950 font-mono text-xs font-bold hover:bg-cyan-400 transition-all flex items-center justify-center space-x-2 shadow-[0_0_20px_rgba(0,240,255,0.4)] cursor-pointer"
             >
               <Car className="w-4 h-4" />
-              <span>LAUNCH TRAFFIC SIMULATION</span>
+              <span>TRAFFIC SIMULATION</span>
             </button>
             <button
               onClick={() => onNavigateDepartment('digital-twin')}
-              className="px-5 py-2.5 rounded-xl bg-slate-900 border border-cyan-500/40 text-cyan-300 font-mono text-xs font-bold hover:bg-slate-800 transition-all flex items-center justify-center space-x-2"
+              className="px-4 sm:px-5 py-2.5 min-h-[44px] rounded-xl bg-slate-900 border border-cyan-500/40 text-cyan-300 font-mono text-xs font-bold hover:bg-slate-800 transition-all flex items-center justify-center space-x-2 cursor-pointer"
             >
               <Building2 className="w-4 h-4" />
-              <span>OPEN 3D DIGITAL TWIN</span>
+              <span>3D DIGITAL TWIN</span>
             </button>
           </div>
         </div>
@@ -90,11 +90,11 @@ export default function OverviewPage({ onNavigateDepartment }) {
 
       {/* Active Disaster Advisory Banner (If Any) */}
       {alerts.length > 0 && (
-        <div className="p-4 rounded-xl border border-rose-500/40 bg-rose-950/20 backdrop-blur-md flex items-start justify-between gap-4">
+        <div className="p-3.5 sm:p-4 rounded-xl border border-rose-500/40 bg-rose-950/20 backdrop-blur-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4">
           <div className="flex items-start space-x-3">
             <AlertTriangle className="w-5 h-5 text-rose-400 shrink-0 mt-0.5 animate-pulse" />
             <div>
-              <div className="flex items-center space-x-2">
+              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
                 <span className="text-xs font-bold font-mono text-rose-400 uppercase tracking-wider">
                   ACTIVE ALERT: {alerts[0].title}
                 </span>
@@ -109,16 +109,16 @@ export default function OverviewPage({ onNavigateDepartment }) {
           </div>
           <button
             onClick={() => onNavigateDepartment('disaster')}
-            className="shrink-0 px-3 py-1.5 rounded-lg bg-rose-600/30 hover:bg-rose-600/50 border border-rose-500/60 text-xs font-mono text-rose-200 transition-colors flex items-center space-x-1"
+            className="w-full sm:w-auto shrink-0 px-3 py-2 min-h-[36px] rounded-lg bg-rose-600/30 hover:bg-rose-600/50 border border-rose-500/60 text-xs font-mono text-rose-200 transition-colors flex items-center justify-center space-x-1 cursor-pointer"
           >
-            <span>REVIEW IN DISASTER STATION</span>
+            <span>REVIEW IN DISASTER</span>
             <ArrowRight className="w-3.5 h-3.5" />
           </button>
         </div>
       )}
 
       {/* Department Pillar Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
         
         {/* 1. Traffic Intelligence Card */}
         <div className="glass-panel p-5 glass-panel-hover transition-all flex flex-col justify-between">

@@ -108,3 +108,26 @@ body {
 .maplibregl-popup-anchor-bottom .maplibregl-popup-tip {
   border-top-color: #0f172a !important;
 }
+
+/* Mobile viewport and touch optimizations */
+@media (max-width: 768px) {
+  input, select, textarea, button {
+    touch-action: manipulation;
+  }
+  
+  /* Ensure popup maps fit comfortably on small screens */
+  .maplibregl-popup {
+    max-width: 240px !important;
+  }
+  
+  .maplibregl-popup-content {
+    padding: 8px 10px !important;
+    font-size: 11px !important;
+  }
+}
+
+/* Safe Area Insets for mobile devices */
+.pb-safe {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+}
+

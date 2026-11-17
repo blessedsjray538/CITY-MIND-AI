@@ -98,29 +98,29 @@ export default function AnalyticsPage() {
       </div>
 
       {/* KPI Scores Bar */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 font-mono">
-        <div className="glass-panel p-3.5">
-          <div className="text-[10px] text-slate-400">OVERALL CITY HEALTH INDEX</div>
-          <div className="text-2xl font-bold text-cyan-400 mt-1">94.2 / 100</div>
-          <div className="text-[10px] text-emerald-400">+2.4% vs last week</div>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 font-mono">
+        <div className="glass-panel p-3 sm:p-3.5">
+          <div className="text-[10px] text-slate-400">CITY HEALTH INDEX</div>
+          <div className="text-xl sm:text-2xl font-bold text-cyan-400 mt-1">94.2 / 100</div>
+          <div className="text-[10px] text-emerald-400 truncate">+2.4% vs last week</div>
         </div>
 
-        <div className="glass-panel p-3.5">
-          <div className="text-[10px] text-slate-400">PEAK SPEED DEVIATION</div>
-          <div className="text-2xl font-bold text-amber-400 mt-1">-38% (18:00)</div>
-          <div className="text-[10px] text-slate-400">Jaydev Vihar bottleneck</div>
+        <div className="glass-panel p-3 sm:p-3.5">
+          <div className="text-[10px] text-slate-400">PEAK DEVIATION</div>
+          <div className="text-xl sm:text-2xl font-bold text-amber-400 mt-1">-38% (18:00)</div>
+          <div className="text-[10px] text-slate-400 truncate">Jaydev Vihar bottleneck</div>
         </div>
 
-        <div className="glass-panel p-3.5">
-          <div className="text-[10px] text-slate-400">WASTE RESOLUTION EFFICIENCY</div>
-          <div className="text-2xl font-bold text-emerald-400 mt-1">92.4%</div>
-          <div className="text-[10px] text-slate-400">110 / 119 weekly cleared</div>
+        <div className="glass-panel p-3 sm:p-3.5">
+          <div className="text-[10px] text-slate-400">RESOLUTION RATE</div>
+          <div className="text-xl sm:text-2xl font-bold text-emerald-400 mt-1">92.4%</div>
+          <div className="text-[10px] text-slate-400 truncate">110 / 119 weekly cleared</div>
         </div>
 
-        <div className="glass-panel p-3.5">
-          <div className="text-[10px] text-slate-400">AVERAGE AIR QUALITY (7-DAY)</div>
-          <div className="text-2xl font-bold text-white mt-1">91 AQI</div>
-          <div className="text-[10px] text-emerald-400">Moderate Tier</div>
+        <div className="glass-panel p-3 sm:p-3.5">
+          <div className="text-[10px] text-slate-400">AVG AQI (7-DAY)</div>
+          <div className="text-xl sm:text-2xl font-bold text-white mt-1">91 AQI</div>
+          <div className="text-[10px] text-emerald-400 truncate">Moderate Tier</div>
         </div>
       </div>
 

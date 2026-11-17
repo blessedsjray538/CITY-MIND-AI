@@ -86,6 +86,8 @@ export default function App() {
         setAiDrawerOpen={setIsAiDrawerOpen}
         onReplayIntro={() => setShowIntro(true)}
         activeDepartment={activeDepartment}
+        mobileMenuOpen={mobileMenuOpen}
+        onToggleMobileMenu={() => setMobileMenuOpen(prev => !prev)}
       />
 
       {/* Autonomous In-House Web Cross-Verification Bar */}
@@ -94,19 +96,21 @@ export default function App() {
       {/* Main Body Layout: Sidebar + Content Viewport + AI Drawer */}
       <div className="flex-1 flex overflow-hidden relative">
         
-        {/* Persistent Left Sidebar */}
+        {/* Persistent Desktop Sidebar & Slide-out Mobile Navigation Drawer */}
         <Sidebar 
           activeDepartment={activeDepartment}
           onSelectDepartment={handleSelectDepartment}
           isCollapsed={isSidebarCollapsed}
           setIsCollapsed={setIsSidebarCollapsed}
+          mobileOpen={mobileMenuOpen}
+          onCloseMobile={() => setMobileMenuOpen(false)}
         />
 
         {/* Main Content Area */}
         <main 
           ref={mainScrollContainerRef}
-          className={`flex-1 overflow-y-auto p-4 md:p-6 transition-all duration-300 ${
-            isAiDrawerOpen ? 'mr-0 md:mr-[420px]' : ''
+          className={`flex-1 overflow-y-auto p-3 sm:p-4 md:p-6 transition-all duration-300 w-full ${
+            isAiDrawerOpen ? 'mr-0 lg:mr-[420px]' : ''
           }`}
         >
           {navigationMode === 'single' ? (

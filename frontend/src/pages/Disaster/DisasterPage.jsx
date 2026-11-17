@@ -65,32 +65,36 @@ export default function DisasterPage() {
   return (
     <div className="space-y-4">
       {/* Top Department View Tabs */}
-      <div className="flex items-center space-x-2 bg-slate-900/80 p-1.5 rounded-xl border border-slate-800 w-fit">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 bg-slate-900/80 p-1.5 rounded-xl border border-slate-800 w-full sm:w-fit">
         <button
           type="button"
           onClick={() => setActiveTab('gis-map')}
-          className={`px-4 py-2 rounded-lg text-xs font-mono font-bold transition flex items-center space-x-2 ${
+          className={`px-3 sm:px-4 py-2 rounded-lg text-xs font-mono font-bold transition flex items-center justify-between sm:justify-start space-x-2 cursor-pointer ${
             activeTab === 'gis-map'
               ? 'bg-rose-600 text-white shadow-lg shadow-rose-900/40'
               : 'text-slate-400 hover:text-white'
           }`}
         >
-          <MapIcon className="w-3.5 h-3.5" />
-          <span>Interactive Disaster GIS Map &amp; Live Traffic</span>
-          <span className="text-[10px] px-1.5 py-0.2 bg-black/40 rounded text-cyan-300">Live</span>
+          <div className="flex items-center space-x-2">
+            <MapIcon className="w-3.5 h-3.5 shrink-0" />
+            <span className="truncate">Disaster GIS Map &amp; Traffic</span>
+          </div>
+          <span className="text-[10px] px-1.5 py-0.2 bg-black/40 rounded text-cyan-300 ml-1">Live</span>
         </button>
         <button
           type="button"
           onClick={() => setActiveTab('cyclone-model')}
-          className={`px-4 py-2 rounded-lg text-xs font-mono font-bold transition flex items-center space-x-2 ${
+          className={`px-3 sm:px-4 py-2 rounded-lg text-xs font-mono font-bold transition flex items-center justify-between sm:justify-start space-x-2 cursor-pointer ${
             activeTab === 'cyclone-model'
               ? 'bg-rose-600 text-white shadow-lg shadow-rose-900/40'
               : 'text-slate-400 hover:text-white'
           }`}
         >
-          <Sliders className="w-3.5 h-3.5" />
-          <span>Cyclone Risk Benchmark &amp; Simulator</span>
-          <span className="text-[10px] px-1.5 py-0.2 bg-black/40 rounded text-rose-300">1999 Model</span>
+          <div className="flex items-center space-x-2">
+            <Sliders className="w-3.5 h-3.5 shrink-0" />
+            <span className="truncate">Cyclone Risk Benchmark</span>
+          </div>
+          <span className="text-[10px] px-1.5 py-0.2 bg-black/40 rounded text-rose-300 ml-1">1999 Model</span>
         </button>
       </div>
 

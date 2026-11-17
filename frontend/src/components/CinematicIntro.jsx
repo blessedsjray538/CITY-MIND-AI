@@ -64,23 +64,23 @@ export default function CinematicIntro({ onComplete }) {
       />
 
       {/* Top Status Banner */}
-      <div className="absolute top-8 left-8 flex items-center space-x-3 text-xs tracking-widest text-cyan-400 font-mono">
-        <Cpu className="w-4 h-4 animate-spin text-cyan-400" />
-        <span>SYS_INIT // BHUBANESWAR_ODISHA</span>
+      <div className="absolute top-4 sm:top-8 left-4 sm:left-8 flex items-center space-x-2 sm:space-x-3 text-[10px] sm:text-xs tracking-widest text-cyan-400 font-mono">
+        <Cpu className="w-3.5 h-3.5 sm:w-4 sm:h-4 animate-spin text-cyan-400" />
+        <span className="truncate max-w-[180px] sm:max-w-none">SYS_INIT // BHUBANESWAR</span>
       </div>
 
       <button 
         onClick={onComplete}
-        className="absolute top-8 right-8 text-xs font-mono text-slate-500 hover:text-cyan-400 border border-slate-800 hover:border-cyan-500/50 px-3 py-1.5 rounded transition-all flex items-center space-x-1.5"
+        className="absolute top-4 sm:top-8 right-4 sm:right-8 text-[10px] sm:text-xs font-mono text-slate-500 hover:text-cyan-400 border border-slate-800 hover:border-cyan-500/50 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded transition-all flex items-center space-x-1 sm:space-x-1.5 cursor-pointer"
       >
-        <span>SKIP INTRO</span>
-        <span className="text-[10px] text-slate-600">[ESC]</span>
+        <span>SKIP</span>
+        <span className="text-[9px] text-slate-600 hidden sm:inline">[ESC]</span>
       </button>
 
       {/* Main Brand Title with Electric Tracer Border Effect */}
-      <div className="relative z-10 text-center px-4">
+      <div className="relative z-10 text-center px-3 sm:px-4 max-w-full">
         {/* Animated Scanning Beam Box */}
-        <div className="relative inline-block p-8 border border-cyan-500/20 rounded-2xl bg-black/40 backdrop-blur-md shadow-[0_0_50px_rgba(0,240,255,0.05)]">
+        <div className="relative inline-block p-4 sm:p-8 border border-cyan-500/20 rounded-2xl bg-black/40 backdrop-blur-md shadow-[0_0_50px_rgba(0,240,255,0.05)] max-w-full">
           {/* Traveling Light Perimeter */}
           {phase >= 1 && (
             <div className="absolute -inset-[1px] rounded-2xl overflow-hidden pointer-events-none">
@@ -91,7 +91,7 @@ export default function CinematicIntro({ onComplete }) {
           {/* Project Name: CITYMIND AI */}
           <div className="relative">
             <h1 
-              className={`text-6xl md:text-8xl font-black tracking-tight font-sans transition-all duration-1000 ${
+              className={`text-4xl sm:text-6xl md:text-8xl font-black tracking-tight font-sans transition-all duration-1000 ${
                 phase === 0 ? 'text-slate-900 opacity-20' :
                 phase === 1 ? 'text-slate-700 [text-shadow:0_0_8px_#00f0ff]' :
                 'text-white drop-shadow-[0_0_25px_rgba(0,240,255,0.8)]'
@@ -131,24 +131,24 @@ export default function CinematicIntro({ onComplete }) {
         </div>
 
         {/* Launch Command Button */}
-        <div className="mt-10">
+        <div className="mt-6 sm:mt-10 px-2">
           <button
             onClick={onComplete}
-            className={`group relative inline-flex items-center space-x-3 px-8 py-3.5 rounded-xl font-mono text-sm tracking-wider font-bold transition-all duration-500 ${
+            className={`group relative inline-flex items-center justify-center space-x-2 sm:space-x-3 px-5 sm:px-8 py-3 sm:py-3.5 rounded-xl font-mono text-xs sm:text-sm tracking-wider font-bold transition-all duration-500 max-w-full ${
               phase >= 4 
                 ? 'bg-gradient-to-r from-cyan-500 to-blue-600 text-slate-950 shadow-[0_0_35px_rgba(0,240,255,0.5)] hover:scale-105 cursor-pointer' 
                 : 'bg-slate-900 text-slate-500 border border-slate-800 cursor-not-allowed opacity-50'
             }`}
           >
-            <Zap className={`w-4 h-4 ${phase >= 4 ? 'text-slate-950 fill-current' : 'text-slate-600'}`} />
-            <span>ENTER COMMAND ENVIRONMENT</span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <Zap className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${phase >= 4 ? 'text-slate-950 fill-current' : 'text-slate-600'}`} />
+            <span className="truncate">ENTER COMMAND ENVIRONMENT</span>
+            <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform shrink-0" />
           </button>
         </div>
       </div>
 
       {/* Bottom Footer Credits */}
-      <div className="absolute bottom-6 text-center text-[11px] font-mono text-slate-600">
+      <div className="absolute bottom-4 sm:bottom-6 text-center text-[10px] sm:text-[11px] font-mono text-slate-600 px-3 truncate max-w-full">
         CITYMIND AI • YOUR CITY. YOUR SIMULATION. SMARTER DECISIONS.
       </div>
     </div>
